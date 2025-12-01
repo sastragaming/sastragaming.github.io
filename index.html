@@ -3,149 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio Premium</title>
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --accent: #00eaff;
+            --bg: #0c0f16;
+            --card: rgba(255, 255, 255, 0.06);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-light: #d9d9d9;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: white;
+        }
+
+        /* HEADER */
         header {
             position: fixed;
-            top: 0;
             width: 100%;
-            background: white;
-            padding: 15px 30px;
+            padding: 20px 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(12,15,22,0.55);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
             z-index: 100;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        nav a:hover {
-            color: #007bff;
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
+        nav a {
+            color: var(--text-light);
+            margin-left: 28px;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 150px 70px;
+        }
+
+        h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* HERO */
         .hero {
             height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg,#007bff,#00d4ff);
-            color: white;
-            animation: fadeIn 1.5s ease-in-out;
+            justify-content: space-between;
+            gap: 60px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero-text h1 {
+            font-size: 58px;
+            font-weight: 600;
         }
 
-        .hero img {
-            width: 150px;
-            height: 150px;
+        .highlight {
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-size: 21px;
+            opacity: 0.85;
+            margin-top: 10px;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* PROFILE PHOTO */
+        .hero-photo img {
+            width: 340px;
+            height: 340px;
             border-radius: 50%;
-            margin-bottom: 20px;
-            animation: float 3s infinite ease-in-out;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 45px rgba(0,234,255, 0.4);
+            animation: floatImg 5s ease-in-out infinite;
         }
 
-        @keyframes float {
+        @keyframes floatImg {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
             100% { transform: translateY(0); }
         }
 
-        section {
-            padding: 80px 20px;
-            max-width: 900px;
-            margin: auto;
+        /* ABOUT */
+        .about-box {
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
 
-        .projects img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+        .about-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 18px;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 25px rgba(0,234,255,0.3);
         }
 
-        .projects img:hover {
-            transform: scale(1.03);
+        /* PROJECTS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
         }
 
-        .contact {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        .project-card {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 18px;
+            transition: 0.35s;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">PORTOFOLIO</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#projects">Projek</a>
-            <a href="#contact">Kontak</a>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div>
-            <img src="https://via.placeholder.com/150" alt="Foto Profil">
-            <h1>Halo, Saya Sastra Gaming</h1>
-            <p>Membuat website modern, cepat, dan responsif.</p>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <h2>Projek Saya</h2>
-        <p>Berikut beberapa contoh hasil pekerjaan saya.</p>
-        <img src="https://via.placeholder.com/900x400" alt="Project Sample">
-    </section>
-
-    <section id="contact">
-        <h2>Kontak</h2>
-        <div class="contact">
-            <p>Email: contoh@mail.com</p>
-            <p>WhatsApp: 6285338595633</p>
-            <p>Instagram: @sastragaming05</p>
-        </div>
-    </section>
-
-    <footer>
-        © 2025 Portofolio Saya
-    </footer>
-</body>
-</html>
-        /* ANIMATIONS */
-        .fade-in {
-            animation: fadeIn 1.5s ease forwards;
+        .project-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(0,234,255,0.25);
         }
 
-        .slide-up {
-            animation: slideUp 1.5s ease forwards;
-        }
-
+        /* FADE ANIMATION */
         .fade-in-section {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease;
+            transform: translateY(40px);
+            transition: 1s ease;
         }
 
         .fade-in-section.visible {
@@ -153,90 +183,117 @@
             transform: translateY(0);
         }
 
-        /* KEYFRAMES */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
+        /* RESPONSIVE */
+        @media(max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            section {
+                padding: 130px 30px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 120px;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .about-box {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">MyPortfolio</div>
-        <nav>
-            <a href="#about">Tentang</a>
-            <a href="#projects">Proyek</a>
-            <a href="#contact">Kontak</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+</header>
 
-    <!-- HERO SECTION -->
-    <div class="hero" id="home">
-    <div class="photo-box">
-        <img src="https://ibb.co/tPJHnWBP">
+<!-- HERO -->
+<section class="hero fade-in-section">
+    <div class="hero-text">
+        <h1>Halo, Saya <span class="highlight">Sastra Gaming</span></h1>
+        <p class="subtitle">Web Developer • UI/UX Designer • Freelancer</p>
+        <a href="#projects" class="btn">Lihat Proyek</a>
     </div>
-    <section class="hero">
-        <h1 class="fade-in">Halo, Saya <span class="highlight">Nama Anda</span></h1>
-        <p class="slide-up">Web Developer • Designer • Freelancer</p>
-        <a href="#projects" class="btn slide-up">Lihat Proyek</a>
-    </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="about fade-in-section">
-        <h2>Tentang Saya</h2>
+    <div class="hero-photo">
+        <img src="foto.jpg" alt="Foto Profil">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in-section">
+    <h2>Tentang Saya</h2>
+
+    <div class="about-box">
+        <img src="https://ibb.co/tPJHnWBP" class="about-photo" alt="Foto Saya">
         <p>
-            Saya adalah seorang developer yang suka membuat website modern, elegan, dan cepat dengan animasi yang halus.
+            Saya adalah seorang developer yang fokus menciptakan website modern,
+            elegan, cepat, dan memiliki pengalaman pengguna yang nyaman.  
+            Saya menyukai desain bersih, animasi halus, dan tampilan profesional.
         </p>
-    </section>
+    </div>
+</section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="projects fade-in-section">
-        <h2>Proyek Saya</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Deskripsi singkat mengenai project ini...</p>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Deskripsi singkat mengenai project ini...</p>
-            </div>
-            <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Deskripsi singkat mengenai project ini...</p>
-            </div>
+<!-- PROJECTS -->
+<section id="projects" class="fade-in-section">
+    <h2>Proyek Saya</h2>
+
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Deskripsi singkat mengenai project ini...</p>
         </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact fade-in-section">
-        <h2>Kontak</h2>
-        <p>Email: namaemail@example.com</p>
-    </section>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Deskripsi singkat mengenai project ini...</p>
+        </div>
 
-    <script>
-        // Fade-in saat discroll
-        const sections = document.querySelectorAll(".fade-in-section");
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Deskripsi singkat mengenai project ini...</p>
+        </div>
+    </div>
+</section>
 
-        function checkVisibility() {
-            sections.forEach(sec => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    sec.classList.add("visible");
-                }
-            });
-        }
+<!-- CONTACT -->
+<section id="contact" class="fade-in-section">
+    <h2>Kontak</h2>
+    <p>Email: namaemail@example.com</p>
+</section>
 
-        window.addEventListener("scroll", checkVisibility);
-        checkVisibility();
-    </script>
+<script>
+    // Fade-in on scroll
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    function checkVisibility() {
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 120) {
+                sec.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkVisibility);
+    checkVisibility();
+</script>
 
 </body>
 </html>

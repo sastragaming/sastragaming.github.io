@@ -4,111 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Saya</title>
-
-    <!-- FONT -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #0f0f0f;
-            color: white;
-            line-height: 1.7;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
         }
-
-        /* HEADER */
         header {
             position: fixed;
-            width: 100%;
             top: 0;
-            padding: 20px 60px;
+            width: 100%;
+            background: white;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 100;
         }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 600;
-        }
-
-        header a {
-            margin-left: 20px;
-            color: white;
+        nav a {
+            margin: 0 15px;
             text-decoration: none;
+            color: #333;
+            font-weight: bold;
             transition: 0.3s;
         }
-
-        header a:hover {
-            color: #00d4ff;
+        nav a:hover {
+            color: #007bff;
         }
 
-        /* HERO */
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            padding-left: 60px;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg,#007bff,#00d4ff);
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        .highlight {
-            color: #00d4ff;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: 2px solid #00d4ff;
-            color: #00d4ff;
-            text-decoration: none;
-            width: fit-content;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #00d4ff;
-            color: black;
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 120px 60px;
-        }
-
-        h2 {
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             margin-bottom: 20px;
+            animation: float 3s infinite ease-in-out;
         }
 
-        /* PROJECT GRID */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
 
-        .project-card {
-            background: #1a1a1a;
-            padding: 20px;
+        section {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .projects img {
+            width: 100%;
             border-radius: 10px;
-            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
+        .projects img:hover {
+            transform: scale(1.03);
+        }
+
+        .contact {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
             background: #222;
+            color: white;
         }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">PORTOFOLIO</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projek</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+    </header>
 
+    <section class="hero" id="home">
+        <div>
+            <img src="https://via.placeholder.com/150" alt="Foto Profil">
+            <h1>Halo, Saya Sastra Gaming</h1>
+            <p>Membuat website modern, cepat, dan responsif.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Projek Saya</h2>
+        <p>Berikut beberapa contoh hasil pekerjaan saya.</p>
+        <img src="https://via.placeholder.com/900x400" alt="Project Sample">
+    </section>
+
+    <section id="contact">
+        <h2>Kontak</h2>
+        <div class="contact">
+            <p>Email: contoh@mail.com</p>
+            <p>WhatsApp: 6285338595633</p>
+            <p>Instagram: @sastragaming05</p>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Portofolio Saya
+    </footer>
+</body>
+</html>
         /* ANIMATIONS */
         .fade-in {
             animation: fadeIn 1.5s ease forwards;
@@ -156,7 +180,7 @@
     <!-- HERO SECTION -->
     <div class="hero" id="home">
     <div class="photo-box">
-        <img src="https://xeric-silver-ibb1ettbgv-dsa4wqg8ib.edgeone.dev/IMG-20250930-WA0019.jpg">
+        <img src="https://ibb.co/tPJHnWBP">
     </div>
     <section class="hero">
         <h1 class="fade-in">Halo, Saya <span class="highlight">Nama Anda</span></h1>

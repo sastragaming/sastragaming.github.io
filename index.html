@@ -26,14 +26,222 @@ body{background:#020b1c;color:#e6f3ff;overflow-x:hidden}
 
 /* DROPDOWN */
 .dropdown{
-  position:absolute;top:70px;right:20px;
-  background:#03132b;border:1px solid #00eaff40;
-  border-radius:12px;padding:15px;display:none
+ position:absolute;top:70px;right:20px;
+ background:#03132b;border:1px solid #00eaff40;
+ border-radius:12px;padding:15px;display:none
 }
 .dropdown a{display:block;color:#7df9ff;text-decoration:none;margin:10px 0}
 
 /* HERO */
 .hero{min-height:100vh;padding:30px 20px}
+.hero-content{text-align:center;margin-top:80px}
+
+/* BADGE */
+.hero-badges{display:flex;flex-direction:column;gap:14px;align-items:center;margin-bottom:35px}
+.badge{
+ padding:14px 34px;border-radius:999px;
+ background:rgba(0,234,255,.08);
+ border:1px solid #00eaff55;
+ color:#7df9ff;
+ box-shadow:0 0 30px #00eaff55;
+}
+
+/* TITLE */
+.hero-content h1{
+ font-size:44px;
+ background:linear-gradient(90deg,#00eaff,#2f80ff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ margin-bottom:15px;
+}
+
+/* BUTTON */
+.hero-btn{margin-top:35px;display:flex;gap:15px;justify-content:center}
+.hero-btn button{
+ padding:14px 30px;border-radius:30px;
+ border:1px solid #00eaff;background:transparent;color:#e6f3ff
+}
+.hero-btn button:hover{background:#00eaff;color:#000}
+
+/* SECTION */
+section{max-width:1100px;margin:auto;padding:100px 20px}
+h2{text-align:center;color:#00eaff;margin-bottom:40px}
+
+/* ABOUT */
+.about{text-align:center}
+.about img{
+ width:180px;height:180px;border-radius:50%;
+ border:3px solid #00eaff;
+ box-shadow:0 0 30px #00eaff
+}
+
+/* INTRO */
+.intro-hi{
+ font-size:32px;font-weight:bold;
+ background:linear-gradient(90deg,#00eaff,#2f80ff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ text-shadow:0 0 35px #00eaff;
+ margin-top:20px
+}
+.intro-name{font-size:22px;font-weight:bold;margin:15px 0}
+.intro-desc{max-width:750px;margin:auto;font-size:15px;line-height:1.8}
+
+/* PROJECT */
+.project-title{
+ font-size:56px;
+ background:linear-gradient(90deg,#00eaff,#2f80ff);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ text-shadow:0 0 40px #00eaff;
+}
+.project-toggle{display:flex;justify-content:center;gap:30px;margin-bottom:50px}
+.project-toggle button{
+ padding:14px 32px;border-radius:30px;
+ border:1px solid #00eaff;background:transparent;
+ color:#7df9ff
+}
+.project-toggle button:hover{background:#00eaff;color:#000}
+.project-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:30px
+}
+.project-card{
+ background:#03132b;border:1px solid #00eaff40;
+ border-radius:18px;padding:15px;
+ box-shadow:0 0 25px #00eaff30
+}
+.project-card img{width:100%;border-radius:12px;margin-bottom:12px}
+.hidden{display:none}
+
+/* CONTACT */
+.contact-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.contact-links a{color:#7df9ff;text-decoration:none;font-size:18px}
+
+/* FOOTER */
+footer{text-align:center;padding:40px;opacity:.6}
+</style>
+</head>
+
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+<div id="particles-js"></div>
+
+<header class="hero">
+<nav class="nav">
+<b>Portfolio</b>
+<div class="menu" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="dropdown" id="menuBox">
+<a href="#about">Profil</a>
+<a href="#project">Hasil Karya</a>
+<a href="#contact">Kontak</a>
+<a href="#support">Support</a>
+<a href="#comment">Beri Ulasan</a>
+</div>
+
+<div class="hero-content">
+<div class="hero-badges">
+<div class="badge">✨ Sastra Adhycita Assara</div>
+<div class="badge">&lt;/&gt; Programmer</div>
+<div class="badge">🧠 Creative Coder</div>
+</div>
+
+<h1>Sastra Adhycita Assara</h1>
+<div class="hero-btn">
+<button onclick="scrollToId('project')">View Portfolio</button>
+<button onclick="scrollToId('contact')">Contact Me</button>
+</div>
+</div>
+</header>
+
+<section id="about" class="about">
+<h2>PERKENALKAN</h2>
+<img src="foto-saya.jpg">
+<div class="intro-hi">Hi, I am</div>
+<div class="intro-name">Sastra Adhycita Assara</div>
+<div class="intro-desc">
+Programmer muda yang aktif mengembangkan skill di bidang web dan teknologi futuristik. Berkomitmen pada pembelajaran berkelanjutan dan solusi kreatif.
+</div>
+</section>
+
+<section id="project">
+<h2 class="project-title">MY PROJECT</h2>
+<div class="project-toggle">
+<button onclick="showProject('design')">Desain Editing</button>
+<button onclick="showProject('web')">Website Coding</button>
+</div>
+
+<div id="design" class="project-grid">
+<div class="project-card"><img src="desain1.jpg"><p>Desain futuristik neon</p></div>
+<div class="project-card"><img src="desain2.jpg"><p>Visual cinematic</p></div>
+</div>
+
+<div id="web" class="project-grid hidden">
+<div class="project-card"><img src="web1.jpg"><p>Portfolio futuristik</p></div>
+<div class="project-card"><img src="web2.jpg"><p>Landing page</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Kontak</h2>
+<div class="contact-links">
+<a href="https://wa.me/6285338595633" target="_blank">WhatsApp</a>
+<a href="https://instagram.com/sastra_adhyct_s" target="_blank">Instagram</a>
+<a href="https://youtube.com/@sastragaming05" target="_blank">YouTube</a>
+<a href="https://github.com/username" target="_blank">GitHub</a>
+<a href="https://tiktok.com/@username" target="_blank">TikTok</a>
+</div>
+</section>
+
+<section id="support">
+<h2>Donasi Seikhlasnya</h2>
+<div style="text-align:center">
+<a href="https://link.dana.id/minta?full_url=https://qr.dana.id/v1/281012012021051718331903"
+target="_blank" style="color:#00eaff;font-size:18px">
+💙 Klik untuk Donasi
+</a>
+</div>
+</section>
+
+<section id="comment">
+<h2>Beri Ulasan</h2>
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://sastra-portofolio.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+</section>
+
+<footer>© 2026 Sastra Adhycita Assara</footer>
+
+<script>
+function toggleMenu(){
+ menuBox.style.display = menuBox.style.display==="block"?"none":"block"
+}
+function scrollToId(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"})
+}
+function showProject(id){
+ document.getElementById("design").classList.add("hidden")
+ document.getElementById("web").classList.add("hidden")
+ document.getElementById(id).classList.remove("hidden")
+}
+particlesJS("particles-js",{particles:{number:{value:100},color:{value:"#00eaff"},size:{value:3},move:{speed:1.5}}})
+window.onload=()=>setTimeout(()=>loader.style.display="none",1200)
+</script>
+
+</body>
+</html>
 .hero-content{text-align:center;margin-top:80px}
 
 /* BADGE */

@@ -5,35 +5,161 @@
 <title>Sastra Adhycita Assara | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-html{scroll-behavior:smooth}
-body{background:#020b1c;color:#e6f3ff;overflow-x:hidden}
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html {scroll-behavior:smooth;}
+body {background:#020b1c;color:#e6f3ff;overflow-x:hidden;}
 
 /* PARTICLES */
-#particles-js{position:fixed;inset:0;z-index:-5}
+#particles-js {position:fixed;inset:0;z-index:-5;}
 
 /* LOADER */
-#loader{position:fixed;inset:0;background:#020b1c;display:flex;align-items:center;justify-content:center;z-index:9999}
-.loader-ring{width:80px;height:80px;border-radius:50%;border:4px solid #00eaff40;border-top:4px solid #00eaff;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+#loader {position:fixed;inset:0;background:#020b1c;display:flex;align-items:center;justify-content:center;z-index:9999;}
+.loader-ring {width:80px;height:80px;border-radius:50%;border:4px solid #00eaff40;border-top:4px solid #00eaff;animation:spin 1s linear infinite;}
+@keyframes spin {to {transform:rotate(360deg);}}
 
 /* NAV */
-.nav{display:flex;justify-content:space-between;align-items:center;color:#00eaff}
-.menu{font-size:26px;cursor:pointer}
+.nav {display:flex;justify-content:space-between;align-items:center;color:#00eaff;padding:20px;}
+.menu {font-size:26px;cursor:pointer;}
 
 /* DROPDOWN */
-.dropdown{
- position:absolute;top:70px;right:20px;
- background:#03132b;border:1px solid #00eaff40;
- border-radius:12px;padding:15px;display:none
+.dropdown {
+  position:absolute;top:70px;right:20px;
+  background:#03132b;border:1px solid #00eaff40;
+  border-radius:12px;padding:15px;display:none;
 }
-.dropdown a{display:block;color:#7df9ff;text-decoration:none;margin:10px 0}
+.dropdown a {display:block;color:#7df9ff;text-decoration:none;margin:10px 0;}
 
 /* HERO */
-.hero{min-height:100vh;padding:30px 20px}
+.hero {min-height:100vh;padding:30px 20px;text-align:center;}
+.hero-badges {display:flex;flex-direction:column;gap:14px;align-items:center;margin-bottom:35px;}
+.badge {
+  padding:14px 34px;border-radius:999px;
+  background:rgba(0,234,255,.08);
+  border:1px solid #00eaff55;
+  color:#7df9ff;
+  box-shadow:0 0 30px #00eaff55;
+}
+.hero-content h1 {
+  font-size:44px;
+  background:linear-gradient(90deg,#00eaff,#2f80ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
+.hero-btn {margin-top:35px;display:flex;gap:15px;justify-content:center;}
+.hero-btn button {
+  padding:14px 30px;border-radius:30px;
+  border:1px solid #00eaff;background:transparent;color:#e6f3ff;
+  cursor:pointer;
+}
+.hero-btn button:hover {background:#00eaff;color:#000;}
+
+/* SECTION */
+section {max-width:1100px;margin:auto;padding:100px 20px;}
+h2 {text-align:center;color:#00eaff;margin-bottom:40px;}
+
+/* ABOUT */
+.about img {
+  width:180px;height:180px;border-radius:50%;
+  border:3px solid #00eaff;box-shadow:0 0 30px #00eaff;
+}
+.intro-hi {font-size:32px;font-weight:bold;margin-bottom:10px;background:linear-gradient(90deg,#00eaff,#2f80ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 35px #00eaff;}
+.intro-name {font-size:22px;font-weight:bold;color:#ffffff;margin-bottom:25px;}
+.intro-desc {max-width:750px;margin:auto;font-size:15px;line-height:1.8;color:#e6f3ff;opacity:.9;}
+
+/* PROJECT */
+.project-title {
+  font-size:56px;text-align:center;margin-bottom:30px;
+  background:linear-gradient(90deg,#00eaff,#2f80ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 40px #00eaff;
+}
+.project-toggle {display:flex;justify-content:center;gap:30px;margin-bottom:50px;}
+.project-toggle button {
+  padding:14px 32px;border-radius:30px;
+  border:1px solid #00eaff;background:transparent;color:#7df9ff;font-size:16px;cursor:pointer;
+}
+.project-toggle button:hover {background:#00eaff;color:#000;box-shadow:0 0 30px #00eaff;}
+.project-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.project-card {background:#03132b;border:1px solid #00eaff40;border-radius:18px;padding:15px;box-shadow:0 0 25px #00eaff30;}
+.project-card img {width:100%;border-radius:12px;margin-bottom:12px;}
+.project-card p {font-size:14px;opacity:.85;}
+.hidden {display:none;}
+
+/* CONTACT */
+.contact-links {display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.contact-links a {color:#7df9ff;text-decoration:none;font-size:18px;}
+
+/* COMMENT */
+.comment-box input,.comment-box textarea {
+  width:100%;margin-top:12px;padding:12px;
+  background:#020b1c;border:1px solid #00eaff40;color:#e6f3ff;border-radius:8px;
+}
+.comment-box button {
+  margin-top:15px;padding:12px 30px;
+  background:#00eaff;border:none;border-radius:30px;font-weight:bold;cursor:pointer;
+}
+.comment {display:flex;gap:12px;margin-top:20px;border-bottom:1px solid #00eaff30;padding-bottom:12px;}
+.comment img {width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid #00eaff;}
+
+/* FOOTER */
+footer {text-align:center;padding:40px;opacity:.6;}
+</style>
+</head>
+
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+<div id="particles-js"></div>
+
+<header class="hero">
+  <nav class="nav">
+    <b>Portfolio</b>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <div class="dropdown" id="menuBox">
+    <a href="#about">Profil</a>
+    <a href="#project">Hasil Karya</a>
+    <a href="#contact">Kontak</a>
+    <a href="#comment">Beri Ulasan</a>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badges">
+      <div class="badge">✨ Sastra Adhycita Assara</div>
+      <div class="badge">&lt;/&gt; Full Stack Web Developer</div>
+      <div class="badge">🧠 Creative Coder</div>
+    </div>
+
+    <h1>Sastra Adhycita Assara</h1>
+    <p>Full Stack Web Developer • Futuristic UI</p>
+
+    <div class="hero-btn">
+      <button onclick="scrollToId('project')">View Portfolio</button>
+      <button onclick="scrollToId('contact')">Contact Me</button>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <h2>PERKENALKAN</h2>
+  <img src="foto-saya.jpg" alt="Foto Sastra" loading="lazy">
+  <div style="margin-top:20px" class="intro-text">
+    <div class="intro-hi">Hi, I am</div>
+    <div class="intro-name">Sastra Adhycita Assara</div>
+    <div class="intro-desc">
+      Sastra Adhycita Assara adalah seorang programmer muda berusia 19 tahun, lahir di Kota Bima pada 5 Desember 2006. Saat ini ia menempuh pendidikan di Universitas Muhammadiyah Bima. Sejak duduk di bangku SMA dan lulus dari SMAN 1 Kota Bima, Sastra dikenal sebagai pribadi introvert yang memiliki ketertarikan besar terhadap teknologi. Ketertarikannya pada dunia pemrograman mulai berkembang sejak kelas 11, ketika ia aktif mempelajari Termux dan menjalankan bot WhatsApp, yang kemudian mendorongnya untuk mendalami coding secara lebih serius.
+    </div>
+  </div>
+</section>
+
+<section id="p
 .hero-content{text-align:center;margin-top:80px}
 
 /* BADGE */

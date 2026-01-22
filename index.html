@@ -1,308 +1,298 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Premium</title>
+<meta charset="UTF-8">
+<title>Sastra Adhycita Assara | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-        :root {
-            --accent: #00eaff;
-            --bg: #0c0f16;
-            --card: rgba(255, 255, 255, 0.06);
-            --border: rgba(255, 255, 255, 0.1);
-            --text-light: #d9d9d9;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#020b1c;color:#e6f3ff;overflow-x:hidden}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+/* PARTICLES */
+#particles-js{position:fixed;inset:0;z-index:-5}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg);
-            color: white;
-        }
+/* LOADER */
+#loader{position:fixed;inset:0;background:#020b1c;display:flex;align-items:center;justify-content:center;z-index:9999}
+.loader-ring{width:80px;height:80px;border-radius:50%;border:4px solid #00eaff40;border-top:4px solid #00eaff;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-        /* HEADER */
-        header {
-            position: fixed;
-            width: 100%;
-            padding: 20px 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(12,15,22,0.55);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-        }
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;color:#00eaff}
+.menu{font-size:26px;cursor:pointer}
 
-        .logo {
-            font-size: 26px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+/* DROPDOWN */
+.dropdown{
+  position:absolute;top:70px;right:20px;
+  background:#03132b;border:1px solid #00eaff40;
+  border-radius:12px;padding:15px;display:none
+}
+.dropdown a{display:block;color:#7df9ff;text-decoration:none;margin:10px 0}
 
-        nav a {
-            color: var(--text-light);
-            margin-left: 28px;
-            text-decoration: none;
-            font-weight: 400;
-            transition: 0.3s;
-        }
+/* HERO */
+.hero{min-height:100vh;padding:30px 20px}
+.hero-content{text-align:center;margin-top:80px}
 
-        nav a:hover {
-            color: var(--accent);
-        }
+/* BADGE */
+.hero-badges{display:flex;flex-direction:column;gap:14px;align-items:center;margin-bottom:35px}
+.badge{
+  padding:14px 34px;border-radius:999px;
+  background:rgba(0,234,255,.08);
+  border:1px solid #00eaff55;
+  color:#7df9ff;
+  box-shadow:0 0 30px #00eaff55;
+}
 
-        /* SECTIONS */
-        section {
-            padding: 150px 70px;
-        }
+/* TITLE */
+.hero-content h1{
+  font-size:44px;
+  background:linear-gradient(90deg,#00eaff,#2f80ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:15px;
+}
 
-        h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
+/* BUTTON */
+.hero-btn{margin-top:35px;display:flex;gap:15px;justify-content:center}
+.hero-btn button{
+  padding:14px 30px;border-radius:30px;
+  border:1px solid #00eaff;background:transparent;color:#e6f3ff
+}
+.hero-btn button:hover{background:#00eaff;color:#000}
 
-        p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
+/* SECTION */
+section{max-width:1100px;margin:auto;padding:100px 20px}
+h2{text-align:center;color:#00eaff;margin-bottom:40px}
 
-        /* HERO */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
+/* ABOUT */
+.about{text-align:center}
+.about img{width:180px;height:180px;border-radius:50%;border:3px solid #00eaff;box-shadow:0 0 30px #00eaff}
 
-        .hero-text h1 {
-            font-size: 58px;
-            font-weight: 600;
-        }
+/* PROJECT */
+.project-title{
+  font-size:56px;text-align:center;margin-bottom:30px;
+  background:linear-gradient(90deg,#00eaff,#2f80ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 40px #00eaff;
+}
+.project-toggle{
+  display:flex;justify-content:center;gap:30px;margin-bottom:50px
+}
+.project-toggle button{
+  padding:14px 32px;border-radius:30px;
+  border:1px solid #00eaff;background:transparent;
+  color:#7df9ff;font-size:16px;cursor:pointer
+}
+.project-toggle button:hover{
+  background:#00eaff;color:#000;box-shadow:0 0 30px #00eaff
+}
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px
+}
+.project-card{
+  background:#03132b;border:1px solid #00eaff40;
+  border-radius:18px;padding:15px;
+  box-shadow:0 0 25px #00eaff30
+}
+.project-card img{width:100%;border-radius:12px;margin-bottom:12px}
+.project-card p{font-size:14px;opacity:.85}
+.hidden{display:none}
 
-        .highlight {
-            color: var(--accent);
-        }
+/* CONTACT */
+.contact-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.contact-links a{color:#7df9ff;text-decoration:none;font-size:18px}
 
-        .subtitle {
-            font-size: 21px;
-            opacity: 0.85;
-            margin-top: 10px;
-            margin-bottom: 28px;
-        }
+/* COMMENT */
+.comment-box input,.comment-box textarea{
+  width:100%;margin-top:12px;padding:12px;
+  background:#020b1c;border:1px solid #00eaff40;color:#e6f3ff;border-radius:8px
+}
+.comment-box button{
+  margin-top:15px;padding:12px 30px;
+  background:#00eaff;border:none;border-radius:30px;font-weight:bold
+}
+.comment{display:flex;gap:12px;margin-top:20px;border-bottom:1px solid #00eaff30;padding-bottom:12px}
+.comment img{
+  width:45px;height:45px;border-radius:50%;
+  object-fit:cover;border:2px solid #00eaff
+}
 
-        .btn {
-            padding: 12px 28px;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-        }
+/* FOOTER */
+footer{text-align:center;padding:40px;opacity:.6}
 
-        .btn:hover {
-            background: var(--accent);
-            color: #000;
-        }
+/* INTRO TEXT STYLE */
+.intro-hi{
+  font-size:32px;
+  font-weight:bold;
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#00eaff,#2f80ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 35px #00eaff;
+}
 
-        /* PROFILE PHOTO */
-        .hero-photo img {
-            width: 340px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent);
-            box-shadow: 0 0 45px rgba(0,234,255, 0.4);
-            animation: floatImg 5s ease-in-out infinite;
-        }
+.intro-name{
+  font-size:22px;
+  font-weight:bold;
+  color:#ffffff;
+  margin-bottom:25px;
+}
 
-        @keyframes floatImg {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0); }
-        }
+.intro-desc{
+  max-width:750px;
+  margin:auto;
+  font-size:15px;
+  line-height:1.8;
+  color:#e6f3ff;
+  opacity:.9;
+}
 
-        /* ABOUT */
-        .about-box {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-photo {
-            width: 240px;
-            height: 240px;
-            border-radius: 18px;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 25px rgba(0,234,255,0.3);
-        }
-
-        /* PROJECTS */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-        }
-
-        .project-card {
-            background: var(--card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 18px;
-            transition: 0.35s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--accent);
-            box-shadow: 0 0 25px rgba(0,234,255,0.25);
-        }
-
-        /* FADE ANIMATION */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1s ease;
-        }
-
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 900px) {
-            header {
-                padding: 20px 30px;
-            }
-
-            section {
-                padding: 130px 30px;
-            }
-
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 120px;
-                gap: 40px;
-            }
-
-            .hero-text h1 {
-                font-size: 42px;
-            }
-
-            .about-box {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-    </style>
+</style>
 </head>
+
 <body>
 
-<header>
-    <div class="logo">Sastra Gaming</div>
-    <nav>
-        <a href="#about">Tentang</a>
-        <a href="#projects">Proyek</a>
-        <a href="#contact">Kontak</a>
-    </nav>
+<div id="loader"><div class="loader-ring"></div></div>
+<div id="particles-js"></div>
+
+<header class="hero">
+  <nav class="nav">
+    <b>Portfolio</b>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <div class="dropdown" id="menuBox">
+    <a href="#about">About</a>
+    <a href="#project">Project</a>
+    <a href="#contact">Contact</a>
+    <a href="#comment">Komentar</a>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badges">
+      <div class="badge">✨ Sastra Adhycita Assara</div>
+      <div class="badge">&lt;/&gt; Full Stack Web Developer</div>
+      <div class="badge">🧠 Creative Coder</div>
+    </div>
+
+    <h1>Sastra Adhycita Assara</h1>
+    <p>Full Stack Web Developer • Futuristic UI</p>
+
+    <div class="hero-btn">
+      <button onclick="scrollToId('project')">View Portfolio</button>
+      <button onclick="scrollToId('contact')">Contact Me</button>
+    </div>
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero fade-in-section">
-    <div class="hero-text">
-        <h1>Halo, Saya <span class="highlight">Sastra Gaming</span></h1>
-        <p class="subtitle">Web Developer • UI/UX Designer • Freelancer</p>
-        <a href="#projects" class="btn">Lihat Proyek</a>
-    <vt/div>
+<section id="about" class="about">
+  <h2>PERKENALKAN</h2>
+  <img src="foto-saya.jpg">
+  <p style="margin-top:20px">
+    <div class="intro-text">
+    <div class="intro-hi">Hi, I am</div>
+    
+    <div class="intro-name">Sastra Adhycita Assara</div>
+    
+    <div class="intro-desc">
+    Sastra Adhycita Assara adalah seorang programmer muda berusia 19 tahun,lahir di Kota Bima pada 5 Desember 2006. Saat ini ia menempuh pendidikan di Universitas Muhammadiyah Bima. Sejak duduk di bangku SMA dan lulus dari SMAN 1 Kota Bima, Sastra dikenal sebagai pribadi introvert yang memiliki ketertarikan besar terhadap teknologi.Ketertarikannya pada dunia pemrograman mulai berkembang sejak kelas 11, ketika ia aktif mempelajari Termux dan menjalankan bot WhatsApp, yang kemudian mendorongnya untuk mendalami coding secara lebih serius.
+    </div>
+    </div>
+    
+</section>
 
-    <div class="hero-photo">
-        <img src="https://img.sanishtech.com/u/c7084a6a218ec57d8a5781702710cf23.png" alt="Foto Profil">
+<section id="project">
+  <h2 class="project-title">MY PROJECT</h2>
+
+  <div class="project-toggle">
+    <button onclick="showProject('design')">Desain Editing</button>
+    <button onclick="showProject('web')">Website Coding</button>
+  </div>
+
+  <div id="design" class="project-grid">
+    <div class="project-card">
+      <img src="desain1.jpg">
+      <p>Desain poster futuristik dengan nuansa neon.</p>
+    </div>
+    <div class="project-card">
+      <img src="desain2.jpg">
+      <p>Editing visual cinematic modern.</p>
+    </div>
+  </div>
+
+  <div id="web" class="project-grid hidden">
+    <div class="project-card">
+      <img src="web1.jpg">
+      <p>Website portfolio animasi futuristik.</p>
+    </div>
+    <div class="project-card">
+      <img src="web2.jpg">
+      <p>Landing page bisnis responsive.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Kontak & Sosial Media</h2>
+  <div class="contact-links">
+    <a href="https://wa.me/6285338595633" target="_blank">📱 WhatsApp</a>
+    <a href="https://instagram.com/sastra_adhyct_s" target="_blank">📷 Instagram</a>
+    <a href="https://youtube.com/@sastragaming05" target="_blank">▶️ YouTube</a>
+    <a href="https://github.com/username" target="_blank">🐙 GitHub</a>
+    <a href="https://tiktok.com/@username" target="_blank">🎵 TikTok</a>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="fade-in-section">
-    <h2>Tentang Saya</h2>
-
-    <div class="about-box">
-        <img src="https://img.sanishtech.com/u/3c4352cb331d93ba5c8343d82724d9b2.png" class="about-photo" alt="Foto Saya">
-        <p>
-            Saya adalah seorang developer yang fokus menciptakan website modern,
-            elegan, cepat, dan memiliki pengalaman pengguna yang nyaman.  
-            Saya menyukai desain bersih, animasi halus, dan tampilan profesional.
-        </p>
-    </div>
+<section id="comment">
+  <h2>Kotak Saran</h2>
+  <div class="comment-box">
+    <input id="name" placeholder="Nama">
+    <input type="file" id="photo" accept="image/*">
+    <textarea id="msg" placeholder="Komentar"></textarea>
+    <button onclick="addComment()">Kirim</button>
+  </div>
+  <div id="commentList"></div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="fade-in-section">
-    <h2>Proyek Saya</h2>
-
-    <div class="project-grid">
-        <div class="project-card">
-            <h3>Project 1</h3>
-            <p> Nama saya Sastra Adhycita Assara...</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Project 2</h3>
-            <p>TTL: KOTA BIMA,05 DESEMBER 2006</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Project 3</h3>
-            <p>PENDIDIKAN TERAKHIR: 
-                
-                SDN 19 KOTA BIMA
-                
-                SMPN 1 KOTA BIMA
-                
-                SMAN 1 KOTA BIMA
-                
-                UNIVERSITAS MUHAMMADIYAH BIMA (SEKARANG)
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="fade-in-section">
-    <h2>Kontak: 6285338595633</h2>
-    <p>Email: ssastra01@gmail.com</p>
-</section>
+<footer>© 2026 Sastra Adhycita Assara</footer>
 
 <script>
-    // Fade-in on scroll
-    const sections = document.querySelectorAll(".fade-in-section");
-
-    function checkVisibility() {
-        sections.forEach(sec => {
-            const rect = sec.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 120) {
-                sec.classList.add("visible");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", checkVisibility);
-    checkVisibility();
+function toggleMenu(){
+  menuBox.style.display = menuBox.style.display==="block"?"none":"block"
+}
+function scrollToId(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"})
+}
+function showProject(id){
+  document.getElementById("design").classList.add("hidden")
+  document.getElementById("web").classList.add("hidden")
+  document.getElementById(id).classList.remove("hidden")
+}
+function addComment(){
+  if(!name.value||!msg.value||!photo.files[0]) return alert("Lengkapi semua!")
+  const r=new FileReader()
+  r.onload=()=>{
+    commentList.innerHTML+=`
+    <div class="comment">
+      <img src="${r.result}">
+      <div><b>${name.value}</b><br>${msg.value}</div>
+    </div>`
+  }
+  r.readAsDataURL(photo.files[0])
+  name.value="";msg.value="";photo.value=""
+}
+particlesJS("particles-js",{
+  particles:{number:{value:100},color:{value:"#00eaff"},size:{value:3},move:{speed:1.5}}
+})
+window.onload=()=>setTimeout(()=>loader.style.display="none",1200)
 </script>
 
 </body>
-</html>
+    </html>
+    
